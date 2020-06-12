@@ -6,6 +6,134 @@
     <title>Technical Documentation</title>
 </head>
 <body>
-    <h1>Inicio</h1>
+    <main id="main-doc">
+        <div class="basic_concepts">
+            <h1>Basic concepts</h1>
+            <p>This section provides definitions for the specific terminology and the concepts used when describing the <strong>C </strong>programming language.
+                A <strong>C </strong>program is a sequence of text files (typically header and source files) that contain declarations. They undergo translation to become an executable program, which is executed when the OS calls its main function (unless it is itself the OS or another freestanding program, in which case the entry point is implementation-defined).
+                Certain words in a <strong>C </strong>program have special meaning, they are keywords. Others can be used as identifiers, which may be used to identify objects, functions, struct, union, or enumeration tags, their members, typedef names, labels, or macros. 
+                Each identifier (other than macro) is only valid within a part of the program called its scope and belongs to one of four kinds of name spaces. Some identifiers have linkage which makes them refer to the same entities when they appear in different scopes or translation units.
+                Definitions of functions include sequences of statements and declarations, some of which include expressions, which specify the computations to be performed by the program.
+                Declarations and expressions create, destroy, access, and manipulate objects. Each object, function, and expression in <strong>C </strong>is associated with a type. </p>
+            <section id="comments" class="main-section">
+                <header><h1>Comments</h1></header>
+                <p>Comments serve as a sort of in-code documentation. When inserted into a program, they are effectively ignored by the compiler; they are solely intended to be used as notes by the humans that read source code. </p>
+                
+                <h3>Syntax</h3>
+                <img src="images/comments.png" alt="comment code image" height="300px" width="700px"> <!--TODO Remove style -->
+                <ol>
+                    <li>Often known as "<strong>C Style</strong>" or "multi-line" comments.</li>
+                    <li>Often known as "<strong>C++ Style</strong>" or "single-line" comments</li>
+                </ol>
+                <p>All comments are removed from the program at translation phase 3 by replacing each comment with a single whitespace character. </p>
+                
+                <h3><strong>C style</strong></h3>
+                <p>comments are usually used to comment large blocks of text or small fragments of code; however, they can be used to comment single lines. To insert text as a C-style comment, simply surround the text with /* and */. C-style comments tell the compiler to ignore all content between /* and */. Although it is not part of the C standard, /** and */ are often used to indicate documentation blocks; this is legal because the second asterisk is simply treated as part of the comment.
+                Except within a (character constant), a (string literal), or a comment, the characters /* introduce a comment. The contents of such a comment are examined only to identify multibyte characters and to find the characters */ that terminate the comment. C-style comments cannot be nested. </p>
+                
+                <h3>C++ Style</h3>
+                <p><strong>C++ Style</strong> comments are usually used to comment single lines of text or code; however, they can be placed together to form multi-line comments. To insert text as a C++-style comment, simply precede the text with // and follow the text with the new line character. C++-style comments tell the compiler to ignore all content between // and a new line.
+                Except within a (character constant), a (string literal), or a comment, the characters // introduce a comment that includes all multibyte characters up to, but not including, the next new-line character. The contents of such a comment are examined only to identify multibyte characters and to find the new-line character that terminates the comment. C++-style comments can be nested: </p>
+                <img src="images/commentExample1.png" alt="Comment Example 1" height="300px" width="700px"> <!--TODO Remove style -->
+                    
+                <p>A <strong>C Style</strong> comment may appear within a <strong>C++ Style</strong> comment:</p>
+                <img src="images/commentExample2.png" alt="Comment Example 2" height="300px" width="700px"> <!--TODO Remove style -->
+
+                <p>A <strong>C++ Style</strong> comment may appear within a <strong>C Style</strong> comment; this is a mechanism for excluding a small block of source code: </p>
+                <img src="images/commentExample3.png" alt="Comment Example 3"height="300px" width="700px"> <!--TODO Remove style -->
+                
+            </section>
+
+            <section id="ascii_chart" class="main-section">
+                <header><h1>ASCII Chart</h1></header>
+                <p>The following chart contains all 128 ASCII decimal <strong>(dec</strong>), octal <strong>(oct</strong>), hexadecimal <strong>(hex</strong>) and character <strong>(ch)</strong> codes. </p>
+                <img src="images/ASCII Chart.jpg" alt="ASCII Chart">
+                <p>Note: in Unicode, the ASCII character block is known as <a href="http://www.unicode.org/charts/PDF/U0000.pdf">U+0000..U+007F Basic Latin</a>.pdf</p>
+                
+                <h3>Example</h3>
+                <img src="images/ASCIIExample1.png" alt="ASCII Example 1" height="300px" width="700px"> <!--TODO Remove style -->
+            </section>
+            
+            <section id="type_arithmetic_types" class="main-section">
+                <header><h1>Type</h1></header>
+                <p>Objects, functions, and expressions have a property called type, which determines the interpretation of the binary value stored in an object or evaluated by the expression. </p>
+                <h3>Type classification</h3>
+                <p>The C type system consists of the following types: </p>
+                <ul>
+                    <li>the type void</li>
+                    <li>basic types </li>
+                    <li>enumerated types</li>
+                    <li>derived types </li>
+                </ul>
+            </section>
+        
+            <section id="objects_and_alignment" class="main-section">
+                <header></header>
+            </section>
+        
+            <section id="the_main_function" class="main-section">
+                <header></header>
+            </section>
+        
+            <section id="as_if_rule" class="main-section">
+                <header></header>
+            </section>
+        
+            <section id="undefined_behavior" class="main-section">
+                <header></header>
+            </section>
+        
+            <section id="memory_model_and_data_races" class="main-section">
+                <header></header>
+            </section>
+        </div>
+
+        
+        <div class="keywords">
+            <section id="keywords" class="main-section">
+                <header></header>
+            </section>
+        </div>
+
+        <div class="preprocessor">
+                <section id="if_ifdef_ifndef" class="main-section">
+                    <header></header>
+                </section>
+            
+                <section id="define" class="main-section">
+                    <header></header>
+                </section>
+            
+                <section id="include_pragma" class="main-section">
+                    <header></header>
+                </section>
+            
+                <section id="line_error" class="main-section">
+                    <header></header>
+                </section>
+        </div>
+        <div class="statements">
+                <section id="if_switch" class="main-section">
+                    <header></header>
+                </section>
+                
+                <section id="for" class="main-section">
+                    <header></header>
+                </section>
+               
+                <section id="while_do_while" class="main-section">
+                    <header></header>
+                </section>
+               
+                <section id="continue_break" class="main-section">
+                    <header></header>
+                </section>
+               
+                <section id="goto_return" class="main-section">
+                    <header></header>
+                </section>
+        </div>
+        
+    </main>
 </body>
 </html>
