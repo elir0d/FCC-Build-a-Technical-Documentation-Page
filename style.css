@@ -1,7 +1,24 @@
+* p{
+    font-size: 1.2rem;
+    color: rgb(70, 69, 69);
+}
+
+* h1{
+    font-size: 2rem;
+    line-height: 0;
+}
+
+* ul, ol, li{
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgb(70, 69, 69);
+
+}
+
 code {
     display: block;
-    text-align: left;
     position: relative;
+    text-align: left;
     line-height: 1;
     background-color: #f7f7f7;
     padding: 15px;
@@ -10,4 +27,5 @@ code {
     white-space: pre;
     word-wrap: normal;
     word-break: normal;
+    font-size: 1rem;
   }
