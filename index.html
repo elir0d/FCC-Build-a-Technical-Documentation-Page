@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Technical Documentation</title>
 </head>
 <body>
     <main id="main-doc">
-        <div class="basic_concepts">
+        <section class="basic_concepts">
             <h1>Basic concepts</h1>
             <p>This section provides definitions for the specific terminology and the concepts used when describing the <strong>C </strong>programming language.
                 A <strong>C </strong>program is a sequence of text files (typically header and source files) that contain declarations. They undergo translation to become an executable program, which is executed when the OS calls its main function (unless it is itself the OS or another freestanding program, in which case the entry point is implementation-defined).
@@ -19,45 +20,67 @@
                 <header><h1>Comments</h1></header>
                 <p>Comments serve as a sort of in-code documentation. When inserted into a program, they are effectively ignored by the compiler; they are solely intended to be used as notes by the humans that read source code. </p>
                 
-                <h3>Syntax</h3>
-                <img src="images/comments.png" alt="comment code image" height="300px" width="700px"> <!--TODO Remove style -->
+                <h1>Syntax</h1>
+                <code>
+                    /* comment */ 	(1) 	
+                    // comment  	(2) 	(since C99)
+                </code>           
                 <ol>
                     <li>Often known as "<strong>C Style</strong>" or "multi-line" comments.</li>
                     <li>Often known as "<strong>C++ Style</strong>" or "single-line" comments</li>
                 </ol>
                 <p>All comments are removed from the program at translation phase 3 by replacing each comment with a single whitespace character. </p>
                 
-                <h3><strong>C style</strong></h3>
+                <h1><strong>C style</strong></h1>
                 <p>comments are usually used to comment large blocks of text or small fragments of code; however, they can be used to comment single lines. To insert text as a C-style comment, simply surround the text with /* and */. C-style comments tell the compiler to ignore all content between /* and */. Although it is not part of the C standard, /** and */ are often used to indicate documentation blocks; this is legal because the second asterisk is simply treated as part of the comment.
                 Except within a (character constant), a (string literal), or a comment, the characters /* introduce a comment. The contents of such a comment are examined only to identify multibyte characters and to find the characters */ that terminate the comment. C-style comments cannot be nested. </p>
                 
-                <h3>C++ Style</h3>
+                <h1>C++ Style</h1>
                 <p><strong>C++ Style</strong> comments are usually used to comment single lines of text or code; however, they can be placed together to form multi-line comments. To insert text as a C++-style comment, simply precede the text with // and follow the text with the new line character. C++-style comments tell the compiler to ignore all content between // and a new line.
                 Except within a (character constant), a (string literal), or a comment, the characters // introduce a comment that includes all multibyte characters up to, but not including, the next new-line character. The contents of such a comment are examined only to identify multibyte characters and to find the new-line character that terminates the comment. C++-style comments can be nested: </p>
-                <img src="images/commentExample1.png" alt="Comment Example 1" height="300px" width="700px"> <!--TODO Remove style -->
+                <code>
+                    //  y = f(x);   // invoke algorithm
+                </code>
                     
                 <p>A <strong>C Style</strong> comment may appear within a <strong>C++ Style</strong> comment:</p>
-                <img src="images/commentExample2.png" alt="Comment Example 2" height="300px" width="700px"> <!--TODO Remove style -->
+                <code>
+                    //  y = f(x);   /* invoke algorithm */
+                </code>
 
                 <p>A <strong>C++ Style</strong> comment may appear within a <strong>C Style</strong> comment; this is a mechanism for excluding a small block of source code: </p>
-                <img src="images/commentExample3.png" alt="Comment Example 3"height="300px" width="700px"> <!--TODO Remove style -->
-                
+                <code style="color: rgb(224, 0, 0);">
+                    /*
+                        y = f(x);   // invoke algorithms
+                        z = g(x);
+                    */
+                </code>                
             </section>
 
             <section id="ascii_chart" class="main-section">
                 <header><h1>ASCII Chart</h1></header>
                 <p>The following chart contains all 128 ASCII decimal <strong>(dec</strong>), octal <strong>(oct</strong>), hexadecimal <strong>(hex</strong>) and character <strong>(ch)</strong> codes. </p>
-                <img src="images/ASCII Chart.jpg" alt="ASCII Chart">
+                <img src="images/Anotação 2020-06-13 002402.jpg" alt="ASCII Chart">
                 <p>Note: in Unicode, the ASCII character block is known as <a href="http://www.unicode.org/charts/PDF/U0000.pdf">U+0000..U+007F Basic Latin</a>.pdf</p>
                 
-                <h3>Example</h3>
-                <img src="images/ASCIIExample1.png" alt="ASCII Example 1" height="300px" width="700px"> <!--TODO Remove style -->
+                <h1>Example</h1>
+                <code>
+                    #include <stdio.h> 
+                         
+                    int main(void)
+                    {
+                        puts("Printable ASCII:");
+                        for (int i = 32; i < 127; ++i) {
+                            putchar(i);
+                            putchar(i % 16 == 15 ? '\n' : ' ');
+                        }
+                    }
+                </code>
             </section>
             
             <section id="type_arithmetic_types" class="main-section">
                 <header><h1>Type</h1></header>
                 <p>Objects, functions, and expressions have a property called type, which determines the interpretation of the binary value stored in an object or evaluated by the expression. </p>
-                <h3>Type classification</h3>
+                <h1>Type classification</h1>
                 <p>The C type system consists of the following types: </p>
                 <ul>
                     <li>the type void</li>
@@ -86,7 +109,7 @@
             <section id="memory_model_and_data_races" class="main-section">
                 <header></header>
             </section>
-        </div>
+        </section>
 
         
         <div class="keywords">
