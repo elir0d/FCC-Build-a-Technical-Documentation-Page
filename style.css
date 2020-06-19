@@ -1,20 +1,68 @@
-* p{
-    font-size: 1.2rem;
-    color: rgb(70, 69, 69);
+html,
+body {
+    height: 100%;
+    margin-top: 0;
+    min-width: 300px;
+    color: #000000;
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.8em;
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
 }
 
-* header, h1{
-    font-size: 2rem;
-    line-height: 1;
+#navbar{
+    position: fixed;
+    margin-top: 9px;
+    min-width: 300px;
+    height: 100%;
+    border-right: solid;
+    border-color:black;
+}
+
+#navbar ul {
+    height: 86%;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#navbar li {
+    color: black;
+    border-bottom: 2px solid;
+    list-style: none;
+    position: relative;
+    width: 100%;
+}
+
+#navbar a {
+    display: block;
+    padding: 10px 30px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+header {
+    color: black;
+    margin: 10px;
+    text-align: center;
+    font-size: 1.8em;
     font-weight: bold;
+  }
+
+#main-doc {
+    position: absolute;
+    margin-left: 20%;
+    padding: 20px;
+    margin-bottom: 110px;
 }
 
-* ul, ol, li{
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: rgb(70, 69, 69);
-
+#main-doc header {
+    text-align: left;
+    margin: 0px;
 }
+
 
 code {
     display: block;
@@ -22,11 +70,15 @@ code {
     text-align: left;
     line-height: 1;
     background-color: #f7f7f7;
-    padding: 15px;
-    margin: 10px;
+    padding: 0;
+    margin: 20px 0 ;
     border-radius: 5px;
     white-space: pre;
     word-wrap: normal;
     word-break: normal;
     font-size: 1rem;
+  }
+
+  img{
+      margin: 20px 0;
   }
