@@ -3,9 +3,10 @@
     color: rgb(70, 69, 69);
 }
 
-* h1{
+* header, h1{
     font-size: 2rem;
-    line-height: 0;
+    line-height: 1;
+    font-weight: bold;
 }
 
 * ul, ol, li{
