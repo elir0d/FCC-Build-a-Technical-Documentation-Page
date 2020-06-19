@@ -188,18 +188,6 @@
                     }
                 </code>
             </section>
-        
-            <section id="as_if_rule" class="main-section">
-                <header></header>
-            </section>
-        
-            <section id="undefined_behavior" class="main-section">
-                <header></header>
-            </section>
-        
-            <section id="memory_model_and_data_races" class="main-section">
-                <header></header>
-            </section>
         </section>
 
         
@@ -214,44 +202,222 @@
         </div>
 
         <div class="preprocessor">
-                <section id="if_ifdef_ifndef" class="main-section">
-                    <header></header>
+                <section id="preprocessor" class="main-section">
+                    <header><h1>Preprocessor</h1></header>
+                    <p>The preprocessor is executed at translation phase 4, before the compilation. The result of preprocessing is a single file which is then passed to the actual compiler. </p>
                 </section>
             
-                <section id="define" class="main-section">
-                    <header></header>
+                <section id="directives" class="main-section">
+                    <header><h1>Directives</h1></header>
+                    <p>The preprocessing directives control the behavior of the preprocessor. Each directive occupies one line and has the following format:</p>
+                    <ul>
+                        <li># character </li>
+                        <li>preprocessing instruction (one of define, undef, include, if, ifdef, ifndef, else, elif, endif, line, error, pragma)</li>
+                        <li>arguments (depends on the instruction) </li>
+                        <li>line break </li>
+                    </ul>
+                    <p>The null directive (# followed by a line break) is allowed and has no effect. </p>
                 </section>
-            
-                <section id="include_pragma" class="main-section">
-                    <header></header>
+
+                <section id="capabilities" class="main-section">
+                    <header><h1>Capabilities</h1></header>
+                    <p>The preprocessor has the source file translation capabilities: </p>
+                    <ul>
+                        <li>conditionally compile of parts of source file (controlled by directive #if, #ifdef, #ifndef, #else, #elif and #endif). </li>
+                        <li>replace text macros while possibly concatenating or quoting identifiers (controlled by directives #define and #undef, and operators # and ##) </li>
+                        <li>include other files (controlled by directive #include) </li>
+                        <li>cause an error (controlled by directive #error) </li>
+                    </ul>
+                    <p>The following aspects of the preprocessor can be controlled: </p>
+                    <ul>
+                        <li>implementation defined behavior (controlled by directive #pragma and operator _Pragma (since C99)) </li>
+                        <li>file name and line information available to the preprocessor (controlled by directives #line) </li>
+                    </ul>
                 </section>
-            
-                <section id="line_error" class="main-section">
-                    <header></header>
+
+
+                <section id="Footnotes" class="main-section">
+                    <header><h1>Footnotes</h1></header>
+                    <ol>
+                        <li>↑ These are the directives defined by the standard. The standard does not define behavior for other directives: they might be ignored, have some useful meaning, or make the program ill-formed. Even if otherwise ignored, they are removed from the source code when the preprocessor is done. A common non-standard extension is the directive #warning which emits a user-defined message during compilation.</li>
+                    </ol>
                 </section>
         </div>
+
+        <div class="functions">
+            <section>
+                <header><h1>function</h1></header>
+                <p>A function is a C language construct that associates a compound statement (the function body) with an identifier (the function name). Every C program begins execution from the main function, which either terminates, or invokes other, user-defined or library functions. </p>
+                <code>
+                    // function definition.
+                    // defines a function with the name "sum" and with the body "{ return x+y; }"
+                    
+                    int sum(int x, int y) 
+                    {
+                        return x + y;
+                    }
+                </code>
+                <p>Functions may accept zero or more parameters, which are initialized from the arguments of a function call operator, and may return a value to its caller by means of the return statement. </p>
+                <code>
+                    int n = sum(1, 2); // parameters x and y are initialized with the arguments 1 and 2
+                </code>
+                <p>The body of a function is provided in a function definition. Each function must be defined only once in a program, unless the function is inline. </p>
+                <p>There are no nested functions (except where allowed through non-standard compiler extensions): each function definition must appear at file scope, and functions have no access to the local variables from the caller: </p>
+                <code>
+                    int main(void) // the main function definition
+                    {
+                        int sum(int, int); // function declaration (may appear at any scope)
+                        int x = 1;  // local variable in main
+                        sum(1, 2); // function call
+                    
+                    //int sum(int a, int b) // error: no nested functions
+                    //{
+                    //  return  a + b; 
+                    //}
+                    
+                    }
+
+                    int sum(int a, int b) // function definition
+                    {
+                        //return x + a + b; //  error: main's x is not accessible within sum
+                        return a + b;
+                    }
+                </code>
+            </section>
+        </div>
+
         <div class="statements">
-                <section id="if_switch" class="main-section">
-                    <header></header>
+                <section id="statements">
+                    <header><h1>Statements</h1></header>
+                    <p>Statements are fragments of the <strong>C</strong> program that are executed in sequence. The body of any function is a compound statement, which, in turn is a sequence of statements and declarations: </p>
+                    <code>
+                        int main(void)
+                        { // start of a compound statement
+                            int n = 1; // declaration (not a statement)
+                            n = n+1; // expression statement
+                            printf("n = %d\n", n); // expression statement
+                            return 0; // return statement
+                        } // end of compound statement, end of function body
+                    </code>
+                    <p>There are five types of statements: </p>
+                    <ol>
+                        <li>compound statements</li>
+                        <li>expression statements</li>
+                        <li>selection statements</li>
+                        <li>iteration statements</li>
+                        <li>jump statements</li>
+                    </ol>
+                </section>
+
+                <section id="labels" class="main-section">
+                    <header><h1>Labels</h1></header>
+                    <p>Any statement can be labeled, by providing a name followed by a colon before the statement itself. </p>
+                    <code>
+                        identifier : statement	
+                        case constant_expression : statement
+                        default : statement
+                    </code>
+                    <ol>
+                        <li>Target for goto.</li>
+                        <li>Case label in a switch statement.</li>
+                        <li>Default label in a switch statement.</li>
+                    </ol>
+                    <p>Any statement (but not a declaration) may be preceded by any number of labels, each of which declares identifier to be a label name, which must be unique within the enclosing function (in other words, label names have function scope). </p>
+                    <p>Label declaration has no effect on its own, does not alter the flow of control, or modify the behavior of the statement that follows in any way. </p>
                 </section>
                 
-                <section id="for" class="main-section">
-                    <header></header>
+                <section id="compound-statements" class="main-section">
+                    <header><h1>Compound statements</h1></header>
+                    <p>A compound statement, or block, is a brace-enclosed sequence of statements and declarations. </p>
+                    <code>{ statement | declaration...(optional) } 	(1)</code>
+                    <p>The compound statement allows a set of declarations and statements to be grouped into one unit that can be used anywhere a single statement is expected (for example, in an if statement or an iteration statement): </p>
+                    <code>
+                        if (expr) // start of if-statement
+                        { // start of block
+                          int n = 1; // declaration
+                          printf("%d\n", n); // expression statement
+                        } // end of block, end of if-statement
+                    </code>
+                    <p>Each compound statement introduces its own block scope. </p>
+                    <p>The initializers of the variables with automatic storage duration declared inside a block and the VLA declarators are executed when flow of control passes over these declarations in order, as if they were statements: </p>
+                    <code>
+                        int main(void)
+                        { // start of block
+                          { // start of block
+                               puts("hello"); // expression statement
+                               int n = printf("abc\n"); // declaration, prints "abc", stores 4 in n
+                               int a[n*printf("1\n")]; // declaration, prints "1", allocates 8*sizeof(int)
+                               printf("%zu\n", sizeof(a)); // expression statement
+                          } // end of block, scope of n and a ends
+                          int n = 7; // n can be reused
+                        }
+                    </code>
                 </section>
                
-                <section id="while_do_while" class="main-section">
-                    <header></header>
+                <section id="expression-statements" class="main-section">
+                    <header><h1>Expression statements</h1></header>
+                    <p>An expression followed by a semicolon is a statement. </p>
+                    <code>
+                        expression(optional) ;	
+                    </code>
+                    <p>Most statements in a typical C program are expression statements, such as assignments or function calls. </p>
+                    <p>An expression statement without an expression is called a null statement. It is often used to provide an empty body to a for or while loop. It can also be used to carry a label in the end of a compound statement or before a declaration: </p>
+                    <code>
+                        puts("hello"); // expression statement
+                        
+                        char *s;
+                        while (*s++ != '\0')
+                            ; // null statement
+                    </code>
                 </section>
                
-                <section id="continue_break" class="main-section">
-                    <header></header>
+                <section id="selection-statements" class="main-section">
+                    <header><h1>Selection statements</h1></header>
+                    <p>The selection statements choose between one of several statements depending on the value of an expression. </p>
+                    <code>
+                        if     ( expression ) statement	
+                        if     ( expression ) statement else statement
+                        switch ( expression ) statement	
+                    </code>
+                    <ol>
+                        <li>if statement</li>
+                        <li>if statement with an else clause</li>
+                        <li>switch statement</li>
+                    </ol>
                 </section>
                
-                <section id="goto_return" class="main-section">
-                    <header></header>
+                <section id="iteration-statements" class="main-section">
+                    <header><h1> Iteration statements</h1></header>
+                    <p>The iteration statements repeatedly execute a statement. </p>
+                    <code>
+                        while ( expression ) statement	
+                        do statement while ( expression ) ;	
+                        for ( init_clause ; expression(optional) ; expression(optional) ) statement	
+                    </code>
+                    <ol>
+                        <li>while loop</li>
+                        <li>do-while loop</li>
+                        <li>for loop</li>
+                    </ol>
+                </section>
+
+                <section id="jump-statements">
+                    <header><h1>Jump statements</h1></header>
+                    <p>The jump statements unconditionally transfer flow control. </p>
+                    <code>
+                        break ; 	                 	
+                        continue ; 		
+                        return expression(optional) ;
+                        goto identifier ;
+                    </code>
+                    <ol>
+                        <li>break statement</li>
+                        <li>continue statement</li>
+                        <li>return statement with an optional expression</li>
+                        <li>goto statement</li>
+                    </ol>
                 </section>
         </div>
-        
     </main>
 </body>
 </html>
