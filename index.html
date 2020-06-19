@@ -8,16 +8,16 @@
 </head>
 <body>
     <main id="main-doc">
-        <section class="basic_concepts">
-            <h1>Basic concepts</h1>
+        <section id="Basic_concepts" class="main-section">
+            <header>Basic concepts</header>
             <p>This section provides definitions for the specific terminology and the concepts used when describing the <strong>C </strong>programming language.
                 A <strong>C </strong>program is a sequence of text files (typically header and source files) that contain declarations. They undergo translation to become an executable program, which is executed when the OS calls its main function (unless it is itself the OS or another freestanding program, in which case the entry point is implementation-defined).
                 Certain words in a <strong>C </strong>program have special meaning, they are keywords. Others can be used as identifiers, which may be used to identify objects, functions, struct, union, or enumeration tags, their members, typedef names, labels, or macros. 
                 Each identifier (other than macro) is only valid within a part of the program called its scope and belongs to one of four kinds of name spaces. Some identifiers have linkage which makes them refer to the same entities when they appear in different scopes or translation units.
                 Definitions of functions include sequences of statements and declarations, some of which include expressions, which specify the computations to be performed by the program.
                 Declarations and expressions create, destroy, access, and manipulate objects. Each object, function, and expression in <strong>C </strong>is associated with a type. </p>
-            <section id="comments" class="main-section">
-                <header><h1>Comments</h1></header>
+            <section id="Comments" class="main-section">
+                <header>Comments</header>
                 <p>Comments serve as a sort of in-code documentation. When inserted into a program, they are effectively ignored by the compiler; they are solely intended to be used as notes by the humans that read source code. </p>
                 
                 <h1>Syntax</h1>
@@ -56,8 +56,8 @@
                 </code>                
             </section>
 
-            <section id="ascii_chart" class="main-section">
-                <header><h1>ASCII Chart</h1></header>
+            <section id="ASCII_Chart" class="main-section">
+                <header>ASCII Chart</header>
                 <p>The following chart contains all 128 ASCII decimal <strong>(dec</strong>), octal <strong>(oct</strong>), hexadecimal <strong>(hex</strong>) and character <strong>(ch)</strong> codes. </p>
                 <img src="images/Anotação 2020-06-13 002402.jpg" alt="ASCII Chart">
                 <p>Note: in Unicode, the ASCII character block is known as <a href="http://www.unicode.org/charts/PDF/U0000.pdf">U+0000..U+007F Basic Latin</a>.pdf</p>
@@ -77,8 +77,8 @@
                 </code>
             </section>
             
-            <section id="type_arithmetic_types" class="main-section">
-                <header><h1>Type</h1></header>
+            <section id="Type" class="main-section">
+                <header>Type</header>
                 <p>Objects, functions, and expressions have a property called type, which determines the interpretation of the binary value stored in an object or evaluated by the expression. </p>
                 <h1>Type classification</h1>
                 <p>The C type system consists of the following types: </p>
@@ -109,8 +109,8 @@
                 </ul>
             </section>
         
-            <section id="objects_and_alignment" class="main-section">
-                <header><h1>Objects and alignment</h1></header>
+            <section id="Objects_and_alignment" class="main-section">
+                <header>Objects and alignment</header>
                 <p>C programs create, destroy, access, and manipulate objects.
                     An object, in C, is region of data storage in the execution environment, the contents of which can represent values (a value is the meaning of the contents of an object, when interpreted as having a specific type).
                     Every object has.</p>
@@ -136,8 +136,8 @@
             
             </section>
             
-            <section id="the_main_function" class="main-section">
-                <header><h1>Main function</h1></header>
+            <section id="The_Main_Function" class="main-section">
+                <header>The Main Function</header>
                 <p>Every C program coded to run in a hosted execution environment contains the definition (not the prototype) of a function called main, which is the designated start of the program.
                 </p>
                 <code>
@@ -191,24 +191,21 @@
         </section>
 
         
-        <div class="keywords">
-            <section id="keywords" class="main-section">
-                <header><h1>C keywords</h1></header>
-                <p>This is a list of reserved keywords in C. Since they are used by the language, these keywords are not available for re-definition. </p>
-                <img src="images/Anotação 2020-06-13 011814.jpg" alt="">
-                <p>The most common keywords that begin with an underscore are generally used through their convenience macros: </p>
-                <img src="images/Anotação 2020-06-13 011937.jpg" alt="">
-            </section>
-        </div>
+        <section id="C_Keywords" class="main-section">
+            <header>C Keywords</header>
+            <p>This is a list of reserved keywords in C. Since they are used by the language, these keywords are not available for re-definition. </p>
+            <img src="images/Anotação 2020-06-13 011814.jpg" alt="">
+            <p>The most common keywords that begin with an underscore are generally used through their convenience macros: </p>
+            <img src="images/Anotação 2020-06-13 011937.jpg" alt="">
+        </section>
 
-        <div class="preprocessor">
-                <section id="preprocessor" class="main-section">
-                    <header><h1>Preprocessor</h1></header>
+                <section id="Preprocessor" class="main-section">
+                    <header>Preprocessor</header>
                     <p>The preprocessor is executed at translation phase 4, before the compilation. The result of preprocessing is a single file which is then passed to the actual compiler. </p>
                 </section>
             
-                <section id="directives" class="main-section">
-                    <header><h1>Directives</h1></header>
+                <section id="Directives" class="main-section">
+                    <header>Directives</header>
                     <p>The preprocessing directives control the behavior of the preprocessor. Each directive occupies one line and has the following format:</p>
                     <ul>
                         <li># character </li>
@@ -219,8 +216,8 @@
                     <p>The null directive (# followed by a line break) is allowed and has no effect. </p>
                 </section>
 
-                <section id="capabilities" class="main-section">
-                    <header><h1>Capabilities</h1></header>
+                <section id="Capabilities" class="main-section">
+                    <header>Capabilities</header>
                     <p>The preprocessor has the source file translation capabilities: </p>
                     <ul>
                         <li>conditionally compile of parts of source file (controlled by directive #if, #ifdef, #ifndef, #else, #elif and #endif). </li>
@@ -237,16 +234,14 @@
 
 
                 <section id="Footnotes" class="main-section">
-                    <header><h1>Footnotes</h1></header>
+                    <header>Footnotes</header>
                     <ol>
                         <li>↑ These are the directives defined by the standard. The standard does not define behavior for other directives: they might be ignored, have some useful meaning, or make the program ill-formed. Even if otherwise ignored, they are removed from the source code when the preprocessor is done. A common non-standard extension is the directive #warning which emits a user-defined message during compilation.</li>
                     </ol>
                 </section>
-        </div>
 
-        <div class="functions">
-            <section id="functions" class="main-section">
-                <header><h1>function</h1></header>
+            <section id="Functions" class="main-section">
+                <header>Functions</header>
                 <p>A function is a C language construct that associates a compound statement (the function body) with an identifier (the function name). Every C program begins execution from the main function, which either terminates, or invokes other, user-defined or library functions. </p>
                 <code>
                     // function definition.
@@ -284,11 +279,9 @@
                     }
                 </code>
             </section>
-        </div>
 
-        <div class="statements">
-                <section id="statements" class="main-section">
-                    <header><h1>Statements</h1></header>
+                <section id="Statements" class="main-section">
+                    <header>Statements</header>
                     <p>Statements are fragments of the <strong>C</strong> program that are executed in sequence. The body of any function is a compound statement, which, in turn is a sequence of statements and declarations: </p>
                     <code>
                         int main(void)
@@ -309,8 +302,8 @@
                     </ol>
                 </section>
 
-                <section id="labels" class="main-section">
-                    <header><h1>Labels</h1></header>
+                <section id="Labels" class="main-section">
+                    <header>Labels</header>
                     <p>Any statement can be labeled, by providing a name followed by a colon before the statement itself. </p>
                     <code>
                         identifier : statement	
@@ -326,8 +319,8 @@
                     <p>Label declaration has no effect on its own, does not alter the flow of control, or modify the behavior of the statement that follows in any way. </p>
                 </section>
                 
-                <section id="compound-statements" class="main-section">
-                    <header><h1>Compound statements</h1></header>
+                <section id="Compound_statements" class="main-section">
+                    <header>Compound statements</header>
                     <p>A compound statement, or block, is a brace-enclosed sequence of statements and declarations. </p>
                     <code>{ statement | declaration...(optional) } 	(1)</code>
                     <p>The compound statement allows a set of declarations and statements to be grouped into one unit that can be used anywhere a single statement is expected (for example, in an if statement or an iteration statement): </p>
@@ -354,8 +347,8 @@
                     </code>
                 </section>
                
-                <section id="expression-statements" class="main-section">
-                    <header><h1>Expression statements</h1></header>
+                <section id="Expression_statements" class="main-section">
+                    <header>Expression statements</header>
                     <p>An expression followed by a semicolon is a statement. </p>
                     <code>
                         expression(optional) ;	
@@ -371,8 +364,8 @@
                     </code>
                 </section>
                
-                <section id="selection-statements" class="main-section">
-                    <header><h1>Selection statements</h1></header>
+                <section id="Selection_statements" class="main-section">
+                    <header>Selection statements</header>
                     <p>The selection statements choose between one of several statements depending on the value of an expression. </p>
                     <code>
                         if     ( expression ) statement	
@@ -386,8 +379,8 @@
                     </ol>
                 </section>
                
-                <section id="iteration-statements" class="main-section">
-                    <header><h1> Iteration statements</h1></header>
+                <section id="Iteration_statements" class="main-section">
+                    <header>Iteration statements</header>
                     <p>The iteration statements repeatedly execute a statement. </p>
                     <code>
                         while ( expression ) statement	
@@ -401,8 +394,8 @@
                     </ol>
                 </section>
 
-                <section id="jump-statements" class="main-section">
-                    <header><h1>Jump statements</h1></header>
+                <section id="Jump_statements" class="main-section">
+                    <header>Jump statements</header>
                     <p>The jump statements unconditionally transfer flow control. </p>
                     <code>
                         break ; 	                 	
@@ -417,7 +410,6 @@
                         <li>goto statement</li>
                     </ol>
                 </section>
-        </div>
     </main>
 </body>
 </html>
