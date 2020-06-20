@@ -13,8 +13,7 @@ body {
 .wrap{
     display: flex;
     flex-direction: row;
-    border: 5px solid green;
-}
+}   
 
 #navbar{
     position: fixed;
@@ -24,7 +23,6 @@ body {
     height: 100%;
     border-right: solid;
     border-color:black;
-    border: 5px solid red;
     z-index: 1;
 
 }
@@ -68,8 +66,7 @@ header {
     margin-left: 300px;
     margin-right: 0;
     overflow-y: hidden;
-    border: 5px solid yellow;
-}
+    }
 
 #main-doc header {
     text-align: left;
