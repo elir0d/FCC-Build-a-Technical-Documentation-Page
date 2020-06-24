@@ -1,3 +1,5 @@
+/* !important on lines 137, 138, 139 and 157*/
+
 * p, li{
     font-size: 1.1rem;
 }
@@ -46,7 +48,7 @@ body {
     position: fixed;
     margin: 0;
     padding-top: 10px;
-    width: 290px;
+    max-width: 290px;
     height: 100%;
     z-index: 1;
 }
@@ -93,7 +95,7 @@ header {
 #main-doc {
     position: relative;
     min-width: 30%;
-    padding: 20px;
+    padding: 0px 20px;
     margin-left: 300px;
     margin-right: 0;
     overflow-y: hidden;
@@ -103,7 +105,7 @@ header {
     text-align: left;
     padding-top: 20px;
     padding-left: 50px;
-    margin: 22px 0px;
+    margin: 10px 0px;
     border-top: 2px solid;
     width: auto;
 }
@@ -113,13 +115,65 @@ code {
     display: block;
     text-align: left;
     white-space: pre;
-    line-height: 1.1;
+    line-height: 1.5;
     background-color: #f7f7f7;
+    margin-right: 5px;
 }
 
 img{
     width: 90%;
     height: auto;
-    margin: 20px 0;
+    border-radius: 0px;
 }
- 
+
+@media only screen and (max-width: 1000px) {
+    * {
+        text-align: center;
+        justify-content: center;
+    }   
+    * header{
+        padding: 0!important;
+        margin: 5px 0px!important;
+        text-align: center!important;
+    }   
+    #main-doc {
+        display: relative;
+        margin-left: 0px;
+    }   
+    #navbar{
+        display: block;
+        position: sticky;
+        min-width: 80%;
+        max-width: 100%;
+        top: 0;
+
+        background-color: white;
+        box-shadow: 0px 0px 6px rgba(50, 50, 50, 0.77);
+        border-radius: 0px;
+    } 
+
+    #navbar header{
+        border: none;
+        padding: 20px 0px!important;
+        margin: 0;
+    }
+    
+    #navbar li{
+        display: none;
+    }
+    
+    code {
+        display: block;
+        text-align: left;
+        white-space: pre;
+        line-height: 1.5;
+        background-color: #f7f7f7;
+        margin-right: 5px;
+    }
+
+    img{
+        width: 100%;
+        height: auto;
+    }
+
+}
