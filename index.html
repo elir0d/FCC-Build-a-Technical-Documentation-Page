@@ -8,436 +8,428 @@
 </head>
 <body>
 
-    <nav id="navbar">
-        <header>C Documentation</header>
-        <ul>
-            <li><a class="nav-link" href="#Basic_concepts">Basic concepts</a></li>
-            <li><a class="nav-link" href="#Comments">Comments</a></li>
-            <li><a class="nav-link" href="#ASCII_Chart">ASCII Chart</a></li>
-            <li><a class="nav-link" href="#Type">Type</a></li>
-            <li><a class="nav-link" href="#Objects_and_alignment">Objects and alignment</a></li>
-            <li><a class="nav-link" href="#The_Main_Function">The Main Function</a></li>
-            <li><a class="nav-link" href="#C_Keywords">C Keywords</a></li>
-            <li><a class="nav-link" href="#Preprocessor">Preprocessor</a></li>
-            <li><a class="nav-link" href="#Directives">Directives</a></li>
-            <li><a class="nav-link" href="#Capabilities">Capabilities</a></li>
-            <li><a class="nav-link" href="#Footnotes">Footnotes</a></li>
-            <li><a class="nav-link" href="#Functions">Functions</a></li>
-            <li><a class="nav-link" href="#Statements">Statements</a></li>
-            <li><a class="nav-link" href="#Labels">Labels</a></li>
-            <li><a class="nav-link" href="#Compound_statements">Compound statements</a></li>
-            <li><a class="nav-link" href="#Expression_statements">Expression statements</a></li>
-            <li><a class="nav-link" href="#Selection_statements">Selection statements</a></li>
-            <li><a class="nav-link" href="#Iteration_statements">Iteration statements</a></li>
-            <li><a class="nav-link" href="#Jump_statements">Jump statements</a></li>
-        </ul>
-    </nav>
+<nav id="navbar">
+    <header>C Documentation</header>
+    <ul>
+        <li><a class="nav-link" href="#Basic_concepts">Basic concepts</a></li>
+        <li><a class="nav-link" href="#Comments">Comments</a></li>
+        <li><a class="nav-link" href="#ASCII_Chart">ASCII Chart</a></li>
+        <li><a class="nav-link" href="#Type">Type</a></li>
+        <li><a class="nav-link" href="#Objects_and_alignment">Objects and alignment</a></li>
+        <li><a class="nav-link" href="#The_Main_Function">The Main Function</a></li>
+        <li><a class="nav-link" href="#C_Keywords">C Keywords</a></li>
+        <li><a class="nav-link" href="#Preprocessor">Preprocessor</a></li>
+        <li><a class="nav-link" href="#Directives">Directives</a></li>
+        <li><a class="nav-link" href="#Capabilities">Capabilities</a></li>
+        <li><a class="nav-link" href="#Footnotes">Footnotes</a></li>
+        <li><a class="nav-link" href="#Functions">Functions</a></li>
+        <li><a class="nav-link" href="#Statements">Statements</a></li>
+        <li><a class="nav-link" href="#Labels">Labels</a></li>
+        <li><a class="nav-link" href="#Compound_statements">Compound statements</a></li>
+        <li><a class="nav-link" href="#Expression_statements">Expression statements</a></li>
+        <li><a class="nav-link" href="#Selection_statements">Selection statements</a></li>
+        <li><a class="nav-link" href="#Iteration_statements">Iteration statements</a></li>
+        <li><a class="nav-link" href="#Jump_statements">Jump statements</a></li>
+    </ul>
+</nav>
 
-    <main id="main-doc">
-        <section id="Basic_concepts" class="main-section">
-            <header>Basic concepts</header>
-            <p>This section provides definitions for the specific terminology and the concepts used when describing the <strong>C </strong>programming language.
-                A <strong>C </strong>program is a sequence of text files (typically header and source files) that contain declarations. They undergo translation to become an executable program, which is executed when the OS calls its main function (unless it is itself the OS or another freestanding program, in which case the entry point is implementation-defined).
-                Certain words in a <strong>C </strong>program have special meaning, they are keywords. Others can be used as identifiers, which may be used to identify objects, functions, struct, union, or enumeration tags, their members, typedef names, labels, or macros. 
-                Each identifier (other than macro) is only valid within a part of the program called its scope and belongs to one of four kinds of name spaces. Some identifiers have linkage which makes them refer to the same entities when they appear in different scopes or translation units.
-                Definitions of functions include sequences of statements and declarations, some of which include expressions, which specify the computations to be performed by the program.
-                Declarations and expressions create, destroy, access, and manipulate objects. Each object, function, and expression in <strong>C </strong>is associated with a type. </p>
-        </section>
+<main id="main-doc">
+<section id="Basic_concepts" class="main-section">
+    <header>Basic concepts</header>
+    <p>This section provides definitions for the specific terminology and the concepts used when describing the <strong>C </strong>programming language.
+        A <strong>C </strong>program is a sequence of text files (typically header and source files) that contain declarations. They undergo translation to become an executable program, which is executed when the OS calls its main function (unless it is itself the OS or another freestanding program, in which case the entry point is implementation-defined).
+        Certain words in a <strong>C </strong>program have special meaning, they are keywords. Others can be used as identifiers, which may be used to identify objects, functions, struct, union, or enumeration tags, their members, typedef names, labels, or macros. 
+        Each identifier (other than macro) is only valid within a part of the program called its scope and belongs to one of four kinds of name spaces. Some identifiers have linkage which makes them refer to the same entities when they appear in different scopes or translation units.
+        Definitions of functions include sequences of statements and declarations, some of which include expressions, which specify the computations to be performed by the program.
+        Declarations and expressions create, destroy, access, and manipulate objects. Each object, function, and expression in <strong>C </strong>is associated with a type. </p>
+</section>
 
-        <section id="Comments" class="main-section">
-                <header>Comments</header>
-                <p>Comments serve as a sort of in-code documentation. When inserted into a program, they are effectively ignored by the compiler; they are solely intended to be used as notes by the humans that read source code. </p>
-                
-                <h1>Syntax</h1>
-                <code>
-                    /* comment */ 	(1) 	
-                    // comment  	(2) 	(since C99)
-                </code>           
-                <ol>
-                    <li>Often known as "<strong>C Style</strong>" or "multi-line" comments.</li>
-                    <li>Often known as "<strong>C++ Style</strong>" or "single-line" comments</li>
-                </ol>
-                <p>All comments are removed from the program at translation phase 3 by replacing each comment with a single whitespace character. </p>
-                
-                <h1><strong>C style</strong></h1>
-                <p>comments are usually used to comment large blocks of text or small fragments of code; however, they can be used to comment single lines. To insert text as a C-style comment, simply surround the text with /* and */. C-style comments tell the compiler to ignore all content between /* and */. Although it is not part of the C standard, /** and */ are often used to indicate documentation blocks; this is legal because the second asterisk is simply treated as part of the comment.
-                Except within a (character constant), a (string literal), or a comment, the characters /* introduce a comment. The contents of such a comment are examined only to identify multibyte characters and to find the characters */ that terminate the comment. C-style comments cannot be nested. </p>
-                
-                <h1>C++ Style</h1>
-                <p><strong>C++ Style</strong> comments are usually used to comment single lines of text or code; however, they can be placed together to form multi-line comments. To insert text as a C++-style comment, simply precede the text with // and follow the text with the new line character. C++-style comments tell the compiler to ignore all content between // and a new line.
-                Except within a (character constant), a (string literal), or a comment, the characters // introduce a comment that includes all multibyte characters up to, but not including, the next new-line character. The contents of such a comment are examined only to identify multibyte characters and to find the new-line character that terminates the comment. C++-style comments can be nested: </p>
-                <code>
-                    //  y = f(x);   // invoke algorithm
-                </code>
-                    
-                <p>A <strong>C Style</strong> comment may appear within a <strong>C++ Style</strong> comment:</p>
-                <code>
-                    //  y = f(x);   /* invoke algorithm */
-                </code>
+<section id="Comments" class="main-section">
+<header>Comments</header>
+<p>Comments serve as a sort of in-code documentation. When inserted into a program, they are effectively ignored by the compiler; they are solely intended to be used as notes by the humans that read source code. </p>
 
-                <p>A <strong>C++ Style</strong> comment may appear within a <strong>C Style</strong> comment; this is a mechanism for excluding a small block of source code: </p>
-                <code style="color: rgb(224, 0, 0);">
-                    /*
-                        y = f(x);   // invoke algorithms
-                        z = g(x);
-                    */
-                </code>                
-            </section>
+<h1>Syntax</h1>
+<code>
+  /* comment */ 	(1) 	
+  // comment  	(2) 	(since C99)
+</code>           
+<ol>
+    <li>Often known as "<strong>C Style</strong>" or "multi-line" comments.</li>
+    <li>Often known as "<strong>C++ Style</strong>" or "single-line" comments</li>
+</ol>
+<p>All comments are removed from the program at translation phase 3 by replacing each comment with a single whitespace character. </p>
 
-            <section id="ASCII_Chart" class="main-section">
+<h1><strong>C style</strong></h1>
+<p>comments are usually used to comment large blocks of text or small fragments of code; however, they can be used to comment single lines. To insert text as a C-style comment, simply surround the text with /* and */. C-style comments tell the compiler to ignore all content between /* and */. Although it is not part of the C standard, /** and */ are often used to indicate documentation blocks; this is legal because the second asterisk is simply treated as part of the comment.
+Except within a (character constant), a (string literal), or a comment, the characters /* introduce a comment. The contents of such a comment are examined only to identify multibyte characters and to find the characters */ that terminate the comment. C-style comments cannot be nested. </p>
+
+<h1>C++ Style</h1>
+<p><strong>C++ Style</strong> comments are usually used to comment single lines of text or code; however, they can be placed together to form multi-line comments. To insert text as a C++-style comment, simply precede the text with // and follow the text with the new line character. C++-style comments tell the compiler to ignore all content between // and a new line.
+Except within a (character constant), a (string literal), or a comment, the characters // introduce a comment that includes all multibyte characters up to, but not including, the next new-line character. The contents of such a comment are examined only to identify multibyte characters and to find the new-line character that terminates the comment. C++-style comments can be nested: </p>
+<code>
+  //  y = f(x);   // invoke algorithm
+</code>
+    
+<p>A <strong>C Style</strong> comment may appear within a <strong>C++ Style</strong> comment:</p>
+<code>
+  //  y = f(x);   /* invoke algorithm */
+</code>
+
+<p>A <strong>C++ Style</strong> comment may appear within a <strong>C Style</strong> comment; this is a mechanism for excluding a small block of source code: </p>
+<code style="color: rgb(224, 0, 0);">
+    /*
+        y = f(x);   // invoke algorithms
+        z = g(x);
+    */
+</code>                
+</section>
+
+<section id="ASCII_Chart" class="main-section">
                 <header>ASCII Chart</header>
                 <p>The following chart contains all 128 ASCII decimal <strong>(dec</strong>), octal <strong>(oct</strong>), hexadecimal <strong>(hex</strong>) and character <strong>(ch)</strong> codes. </p>
                 <img src="images/Anotação 2020-06-13 002402.jpg" alt="ASCII Chart">
                 <p>Note: in Unicode, the ASCII character block is known as <a href="http://www.unicode.org/charts/PDF/U0000.pdf">U+0000..U+007F Basic Latin</a>.pdf</p>
                 
                 <h1>Example</h1>
-                <code>
-                    #include <stdio.h> 
-                         
-                    int main(void)
-                    {
-                        puts("Printable ASCII:");
-                        for (int i = 32; i < 127; ++i) {
-                            putchar(i);
-                            putchar(i % 16 == 15 ? '\n' : ' ');
-                        }
-                    }
-                </code>
-            </section>
+<code>
+include <stdio.h> 
+nt main(void)
+{
+  puts("Printable ASCII:");
+  for (int i = 32; i < 127; ++i) {
+      putchar(i);
+      putchar(i % 16 == 15 ? '\n' : ' ');
+  }
+}
+</code>
+</section>
             
-            <section id="Type" class="main-section">
-                <header>Type</header>
-                <p>Objects, functions, and expressions have a property called type, which determines the interpretation of the binary value stored in an object or evaluated by the expression. </p>
-                <h1>Type classification</h1>
-                <p>The C type system consists of the following types: </p>
-                <ul>
-                    <li>the type void</li>
-                    <li>basic types 
-                        <ul>
-                            <li>the type char</li>
-                            <li>signed integer types - standard: signed char, short, int, long, long long (since C99)</li>
-                            <li>unsigned integer types - standard: _Bool (since C99), unsigned char, unsigned short, unsigned int, unsigned long, unsigned long long (since C99)</li>
-                            <li>floating types - real floating types: float, double, long double
-                                complex types: float _Complex, double _Complex, long double _Complex
-                                imaginary types: float _Imaginary, double _Imaginary, long double _Imaginary 
-                            </li>
-                        </ul>
-                    </li>
-                    <li>enumerated types</li>
-                    <li>derived types
-                        <ul>
-                            <li>array types</li>
-                            <li>structure types</li>
-                            <li>union types</li>
-                            <li>function types</li>
-                            <li>pointer types</li>
-                            <li>atomic types</li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
+<section id="Type" class="main-section">
+    <header>Type</header>
+    <p>Objects, functions, and expressions have a property called type, which determines the interpretation of the binary value stored in an object or evaluated by the expression. </p>
+    <h1>Type classification</h1>
+    <p>The C type system consists of the following types: </p>
+    <ul>
+        <li>the type void</li>
+        <li>basic types 
+            <ul>
+                <li>the type char</li>
+                <li>signed integer types - standard: signed char, short, int, long, long long (since C99)</li>
+                <li>unsigned integer types - standard: _Bool (since C99), unsigned char, unsigned short, unsigned int, unsigned long, unsigned long long (since C99)</li>
+                <li>floating types - real floating types: float, double, long double
+                    complex types: float _Complex, double _Complex, long double _Complex
+                    imaginary types: float _Imaginary, double _Imaginary, long double _Imaginary 
+                </li>
+            </ul>
+        </li>
+        <li>enumerated types</li>
+        <li>derived types
+            <ul>
+                <li>array types</li>
+                <li>structure types</li>
+                <li>union types</li>
+                <li>function types</li>
+                <li>pointer types</li>
+                <li>atomic types</li>
+            </ul>
+        </li>
+    </ul>
+
+</section>
+
+<section id="Objects_and_alignment" class="main-section">
+<header>Objects and alignment</header>
+<p>C programs create, destroy, access, and manipulate objects.
+    An object, in C, is region of data storage in the execution environment, the contents of which can represent values (a value is the meaning of the contents of an object, when interpreted as having a specific type).
+    Every object has.</p>
+<ul>
+    <li>size (can be determined with sizeof) </li>
+    <li>alignment requirement (can be determined by _Alignof) (since C11) </li>
+    <li>storage duration (automatic, static, allocated, thread-local) </li>
+    <li>lifetime (equal to storage duration or temporary) </li>
+    <li>effective type (see below) </li>
+    <li>value (which may be indeterminate) </li>
+    <li>optionally, an identifier that denotes this object </li>
+</ul>
+    <p>Objects are created by declarations, allocation functions, string literals, compound literals, and by non-lvalue expressions that return structures or unions with array members. <  
+    <h1>Object representation</h1>
+    <p>Except for bit fields, objects are composed of contiguous sequences of one or more bytes, each consisting of CHAR_BIT bits, and can be copied with memcpy into an object of type unsigned char[n], where n is the size of the object. The contents of the resulting array are known as object representation.
+        If two objects have the same object representation, they compare equal (except if they are floating-point NaNs). The opposite is not true: two objects that compare equal may have different object representations because not every bit of the object representation needs to participate in the value. Such bits may be used for padding to satisfy alignment requirement, for parity checks, to indicate trap representations, etc.
+        If an object representation does not represent any value of the object type, it is known as trap representation. Accessing a trap representation in any way other than reading it through an lvalue expression of character type is undefined behavior. The value of a structure or union is never a trap representation even if any particular member is one.
+        For the objects of type char, signed char, and unsigned char, every bit of the object representation is required to participate in the value representation and each possible bit pattern represents a distinct value (no padding, trap bits, or multiple representations allowed).
+        When objects of integer types (short, int, long, long long) occupy multiple bytes, the use of those bytes is implementation-defined, but the two dominant implementations are big-endian (POWER, Sparc, Itanium) and little-endian (x86, x86_64): a big-endian platform stores the most significant byte at the lowest address of the region of storage occupied by the integer, a little-endian platform stores the least significant byte at the lowest address. See Endianness for detail. See also example below.
+        Although most implementations do not allow trap representations, padding bits, or multiple representations for integer types, there are exceptions; for example a value of an integer type on Itanium may be a trap representation.
+    </p>
+</section>
+            
+<section id="The_Main_Function" class="main-section">
+<header>The Main Function</header>
+<p>Every C program coded to run in a hosted execution environment contains the definition (not the prototype) of a function called main, which is the designated start of the program.
+</p>
+<code>
+  int main (void) { body }
+  int main (int argc, char *argv[]) { body }	
+  /*another implementation-defined signature*/	
+</code>
+<h1>Parameters</h1>
+<ul>
+    <li><p>argc - Non-negative value representing the number of arguments passed to the program from the environment in which the program is run. </p></li>
+    <li><p>argv 	- 	Pointer to the first element of an array of argc + 1 pointers, of which the last one is null and the previous ones, if any, point to strings that represent the arguments passed to the program from the host environment. If argv[0] is not a null pointer (or, equivalently, if argc > 0), it points to a string that represents the program name, which is empty if the program name is not available from the host environment. </p></li>
+</ul>
+<p>The names argc and argv stand for argument count and argument vector. Names and representation of the types of the parameters are arbitrary: int main(int ac, char** av) is equally valid.
+    A common implementation-defined form of main is int main(int argc, char *argv[], char *envp[]), where a third argument, of type char*[], points at an array of pointers to the host environment variables. </p>
+<h1>Return value</h1>
+<p>If the return statement is used, the return value is used as the argument to the implicit call to exit() (see below for details). The values zero and EXIT_SUCCESS indicate successful termination, the value EXIT_FAILURE indicates unsuccessful termination. 
+<h1>Explanation</h1>
+<p>The main function is called at program startup, after all objects with static storage duration are initialized. It is the designated entry point to a program that is executed in hosted environment (that is, with an operating system). The name and type of the entry point to any freestanding program (boot loaders, OS kernels, etc) are implementation-defin
+    The parameters of the two-parameter form of the main function allow arbitrary multibyte character strings to be passed from the execution environment (these are typically known as command line arguments). The pointers argv[1] .. argv[argc-1] point at the first characters in each of these strings. argv[0] is the pointer to the initial character of a null-terminated multibyte strings that represents the name used to invoke the program itself (or, if this is not supported by the host environment, argv[0][0] is guaranteed to be ze
+    If the host environment cannot supply both lowercase and uppercase letters, the command line arguments are converted to lowerc
+    The strings are modifiable, and any modifications made persist until program termination, although these modifications do not propagate back to the host environment: they can be used, for example, with str
+    The size of the array pointed to by argv is at least argc+1, and the last element, argv[argc], is guaranteed to be a null pointer. 
+<p>The main function has several special properties: </p>
+<ol>
+    <li><p>A prototype for this function cannot be supplied by the program </p></li>
+    <li><p>If the return type of the main function is compatible with int, then the return from the initial call to main (but not the return from any subsequent, recursive, call) is equivalent to executing the exit function, with the value that the main function is returning passed as the argument (which then calls the functions registered with atexit, flushes and closes all streams, and deletes the files created with tmpfile, and returns control to the execution environment).</p></li>
+    <li><p>If the main function executes a return that specifies no value or, which is the same, reaches the terminating } without executing a return, the termination status returned to the host environment is undefined.
+        (until C99)If the return type of the main function is not compatible with int (e.g. void main(void)), the value returned to the host environment is unspecified. If the returned type is compatible with int and control reaches the terminating }, the value returned to the environment is the same as if executing return 0;
+        </p></li>
+</ol>
+<h1>Example</h1>
+<p>Demonstrates how to inform a program about where to find its input and where to write its results. Invocation: ./a.out indatafile outdatafile</p>
+<code>
+#include <stdio.h>
+int main(int argc, char *argv[])
+{
+  printf("argc = %d\n", argc);
+  for(int ndx = 0; ndx != argc; ++ndx)
+  {
+    printf("argv[%d] --> %s\n", ndx,argv[ndx]);
+  }
+
+  printf("argv[argc] = %p\n",(void*)argv[argc]);
+}
+</code>
+</section>
         
-            <section id="Objects_and_alignment" class="main-section">
-                <header>Objects and alignment</header>
-                <p>C programs create, destroy, access, and manipulate objects.
-                    An object, in C, is region of data storage in the execution environment, the contents of which can represent values (a value is the meaning of the contents of an object, when interpreted as having a specific type).
-                    Every object has.</p>
-                <ul>
-                    <li>size (can be determined with sizeof) </li>
-                    <li>alignment requirement (can be determined by _Alignof) (since C11) </li>
-                    <li>storage duration (automatic, static, allocated, thread-local) </li>
-                    <li>lifetime (equal to storage duration or temporary) </li>
-                    <li>effective type (see below) </li>
-                    <li>value (which may be indeterminate) </li>
-                    <li>optionally, an identifier that denotes this object </li>
-                </ul>
-                <p>Objects are created by declarations, allocation functions, string literals, compound literals, and by non-lvalue expressions that return structures or unions with array members. </p>
-                
-                <h1>Object representation</h1>
-                <p>Except for bit fields, objects are composed of contiguous sequences of one or more bytes, each consisting of CHAR_BIT bits, and can be copied with memcpy into an object of type unsigned char[n], where n is the size of the object. The contents of the resulting array are known as object representation.
-                    If two objects have the same object representation, they compare equal (except if they are floating-point NaNs). The opposite is not true: two objects that compare equal may have different object representations because not every bit of the object representation needs to participate in the value. Such bits may be used for padding to satisfy alignment requirement, for parity checks, to indicate trap representations, etc.
-                    If an object representation does not represent any value of the object type, it is known as trap representation. Accessing a trap representation in any way other than reading it through an lvalue expression of character type is undefined behavior. The value of a structure or union is never a trap representation even if any particular member is one.
-                    For the objects of type char, signed char, and unsigned char, every bit of the object representation is required to participate in the value representation and each possible bit pattern represents a distinct value (no padding, trap bits, or multiple representations allowed).
-                    When objects of integer types (short, int, long, long long) occupy multiple bytes, the use of those bytes is implementation-defined, but the two dominant implementations are big-endian (POWER, Sparc, Itanium) and little-endian (x86, x86_64): a big-endian platform stores the most significant byte at the lowest address of the region of storage occupied by the integer, a little-endian platform stores the least significant byte at the lowest address. See Endianness for detail. See also example below.
-                    Although most implementations do not allow trap representations, padding bits, or multiple representations for integer types, there are exceptions; for example a value of an integer type on Itanium may be a trap representation.
-                </p>
+<section id="C_Keywords" class="main-section">
+    <header>C Keywords</header>
+    <p>This is a list of reserved keywords in C. Since they are used by the language, these keywords are not available for re-definition. </p>
+    <img src="images/Anotação 2020-06-13 011814.jpg" alt="">
+    <p>The most common keywords that begin with an underscore are generally used through their convenience macros: </p>
+    <img src="images/Anotação 2020-06-13 011937.jpg" alt="">
+</section>
+
+<section id="Preprocessor" class="main-section">
+    <header>Preprocessor</header>
+    <p>The preprocessor is executed at translation phase 4, before the compilation. The result of preprocessing is a single file which is then passed to the actual compiler. </p>
+</section>
             
-            </section>
-            
-            <section id="The_Main_Function" class="main-section">
-                <header>The Main Function</header>
-                <p>Every C program coded to run in a hosted execution environment contains the definition (not the prototype) of a function called main, which is the designated start of the program.
-                </p>
-                <code>
-                    int main (void) { body }
-                    int main (int argc, char *argv[]) { body }	
-                    /* another implementation-defined signature */	
-                </code>
-                <h1>Parameters</h1>
-                <ul>
-                    <li><p>argc - Non-negative value representing the number of arguments passed to the program from the environment in which the program is run. </p></li>
-                    <li><p>argv 	- 	Pointer to the first element of an array of argc + 1 pointers, of which the last one is null and the previous ones, if any, point to strings that represent the arguments passed to the program from the host environment. If argv[0] is not a null pointer (or, equivalently, if argc > 0), it points to a string that represents the program name, which is empty if the program name is not available from the host environment. </p></li>
-                </ul>
-                <p>The names argc and argv stand for argument count and argument vector. Names and representation of the types of the parameters are arbitrary: int main(int ac, char** av) is equally valid.
-                    A common implementation-defined form of main is int main(int argc, char *argv[], char *envp[]), where a third argument, of type char*[], points at an array of pointers to the host environment variables. </p>
-                <h1>Return value</h1>
-                <p>If the return statement is used, the return value is used as the argument to the implicit call to exit() (see below for details). The values zero and EXIT_SUCCESS indicate successful termination, the value EXIT_FAILURE indicates unsuccessful termination. </p>
+<section id="Directives" class="main-section">
+    <header>Directives</header>
+    <p>The preprocessing directives control the behavior of the preprocessor. Each directive occupies one line and has the following format:</p>
+    <ul>
+        <li># character </li>
+        <li>preprocessing instruction (one of define, undef, include, if, ifdef, ifndef, else, elif, endif, line, error, pragma)</li>
+        <li>arguments (depends on the instruction) </li>
+        <li>line break </li>
+    </ul>
+    <p>The null directive (# followed by a line break) is allowed and has no effect. </p>
+</section>
+
+<section id="Capabilities" class="main-section">
+    <header>Capabilities</header>
+    <p>The preprocessor has the source file translation capabilities: </p>
+    <ul>
+        <li>conditionally compile of parts of source file (controlled by directive #if, #ifdef, #ifndef, #else, #elif and #endif). </li>
+        <li>replace text macros while possibly concatenating or quoting identifiers (controlled by directives #define and #undef, and operators # and ##) </li>
+        <li>include other files (controlled by directive #include) </li>
+        <li>cause an error (controlled by directive #error) </li>
+    </ul>
+    <p>The following aspects of the preprocessor can be controlled: </p>
+    <ul>
+        <li>implementation defined behavior (controlled by directive #pragma and operator _Pragma (since C99)) </li>
+        <li>file name and line information available to the preprocessor (controlled by directives #line) </li>
+    </ul>
+</section>
+
+
+<section id="Footnotes" class="main-section">
+    <header>Footnotes</header>
+    <ol>
+        <li>↑ These are the directives defined by the standard. The standard does not define behavior for other directives: they might be ignored, have some useful meaning, or make the program ill-formed. Even if otherwise ignored, they are removed from the source code when the preprocessor is done. A common non-standard extension is the directive #warning which emits a user-defined message during compilation.</li>
+    </ol>
+</section>
+
+<section id="Functions" class="main-section">
+<header>Functions</header>
+<p>A function is a C language construct that associates a compound statement (the function body) with an identifier (the function name). Every C program begins execution from the main function, which either terminates, or invokes other, user-defined or library functions. </p>
+<code>
+  //function definition.
+   int sum(int x, int y) 
+  {
+      return x + y;
+  }
+</code>
+  <p>Functions may accept zero or more parameters, which are initialized from the arguments of a function call operator, and may return a value to its caller by means of the return statement. </p>
+<code>
+    /* parameters x and y are initialized
+      with the arguments 1 and 2*/
+
+    int n = sum(1, 2); 
+</code>
+  <p>The body of a function is provided in a function definition. Each function must be defined only once in a program, unless the function is inline. </p>
+  <p>There are no nested functions (except where allowed through non-standard compiler extensions): each function definition must appear at file scope, and functions have no access to the local variables from the caller: </p>
+<code>
+int main(void) //the main function definition
+{
+  //function declaration may appear any scope
+  int sum(int, int); 
+  int x = 1;  // local variable in main
+  sum(1, 2); // function ca  
+}
+
+//function definition
+int sum(int a, int b) 
+{
+  return a + b;
+}
+</code>
+</section>
+
+<section id="Statements" class="main-section">
+<header>Statements</header>
+<p>Statements are fragments of the <strong>C</strong> program that are executed in sequence. The body of any function is a compound statement, which, in turn is a sequence of statements and declarations: </p>
+<code>
+int main(void)
+{ // start of a compound statement
+  int n = 1; // declaration (not a statement)
+  n = n+1; // expression statement
+  printf("n = %d\n", n);
+
+  return 0; // return statement
+}
+</code>
+<p>There are five types of statements: </p>
+<ol>
+    <li>compound statements</li>
+    <li>expression statements</li>
+    <li>selection statements</li>
+    <li>iteration statements</li>
+    <li>jump statements</li>
+</ol>
+</section>
+
+<section id="Labels" class="main-section">
+<header>Labels</header>
+<p>Any statement can be labeled, by providing a name followed by a colon before the statement itself. </p>
+<code>
+    identifier : statement	
+    case constant_expression : statement
+    default : statement
+</code>
+    <ol>
+        <li>Target for goto.</li>
+        <li>Case label in a switch statement.</li>
+        <li>Default label in a switch statement.</li>
+    </ol>
+    <p>Any statement (but not a declaration) may be preceded by any number of labels, each of which declares identifier to be a label name, which must be unique within the enclosing function (in other words, label names have function scope). </p>
+    <p>Label declaration has no effect on its own, does not alter the flow of control, or modify the behavior of the statement that follows in any way. </p>
+</section>
                 
-                <h1>Explanation</h1>
-                <p>The main function is called at program startup, after all objects with static storage duration are initialized. It is the designated entry point to a program that is executed in hosted environment (that is, with an operating system). The name and type of the entry point to any freestanding program (boot loaders, OS kernels, etc) are implementation-defined.
-
-                    The parameters of the two-parameter form of the main function allow arbitrary multibyte character strings to be passed from the execution environment (these are typically known as command line arguments). The pointers argv[1] .. argv[argc-1] point at the first characters in each of these strings. argv[0] is the pointer to the initial character of a null-terminated multibyte strings that represents the name used to invoke the program itself (or, if this is not supported by the host environment, argv[0][0] is guaranteed to be zero).
-                    
-                    If the host environment cannot supply both lowercase and uppercase letters, the command line arguments are converted to lowercase.
-                    
-                    The strings are modifiable, and any modifications made persist until program termination, although these modifications do not propagate back to the host environment: they can be used, for example, with strtok.
-                    
-                    The size of the array pointed to by argv is at least argc+1, and the last element, argv[argc], is guaranteed to be a null pointer. </p>
-                
-                <p>The main function has several special properties: </p>
-                <ol>
-                    <li><p>A prototype for this function cannot be supplied by the program </p></li>
-                    <li><p>If the return type of the main function is compatible with int, then the return from the initial call to main (but not the return from any subsequent, recursive, call) is equivalent to executing the exit function, with the value that the main function is returning passed as the argument (which then calls the functions registered with atexit, flushes and closes all streams, and deletes the files created with tmpfile, and returns control to the execution environment).</p></li>
-                    <li><p>If the main function executes a return that specifies no value or, which is the same, reaches the terminating } without executing a return, the termination status returned to the host environment is undefined.
-                        (until C99)If the return type of the main function is not compatible with int (e.g. void main(void)), the value returned to the host environment is unspecified. If the returned type is compatible with int and control reaches the terminating }, the value returned to the environment is the same as if executing return 0;
-                    </p></li>
-                </ol>
-                <h1>Example</h1>
-                <p>Demonstrates how to inform a program about where to find its input and where to write its results. Invocation: ./a.out indatafile outdatafile</p>
-                <code>
-                    #include <stdio.h>
-                    
-                    int main(int argc, char *argv[])
-                    {
-                        printf("argc = %d\n", argc);
-                        for(int ndx = 0; ndx != argc; ++ndx)
-                            printf("argv[%d] --> %s\n", ndx,argv[ndx]);
-                        printf("argv[argc] = %p\n", (void*)argv[argc]);
-                    }
-                </code>
-            </section>
-        </section>
-
-        
-        <section id="C_Keywords" class="main-section">
-            <header>C Keywords</header>
-            <p>This is a list of reserved keywords in C. Since they are used by the language, these keywords are not available for re-definition. </p>
-            <img src="images/Anotação 2020-06-13 011814.jpg" alt="">
-            <p>The most common keywords that begin with an underscore are generally used through their convenience macros: </p>
-            <img src="images/Anotação 2020-06-13 011937.jpg" alt="">
-        </section>
-
-                <section id="Preprocessor" class="main-section">
-                    <header>Preprocessor</header>
-                    <p>The preprocessor is executed at translation phase 4, before the compilation. The result of preprocessing is a single file which is then passed to the actual compiler. </p>
-                </section>
-            
-                <section id="Directives" class="main-section">
-                    <header>Directives</header>
-                    <p>The preprocessing directives control the behavior of the preprocessor. Each directive occupies one line and has the following format:</p>
-                    <ul>
-                        <li># character </li>
-                        <li>preprocessing instruction (one of define, undef, include, if, ifdef, ifndef, else, elif, endif, line, error, pragma)</li>
-                        <li>arguments (depends on the instruction) </li>
-                        <li>line break </li>
-                    </ul>
-                    <p>The null directive (# followed by a line break) is allowed and has no effect. </p>
-                </section>
-
-                <section id="Capabilities" class="main-section">
-                    <header>Capabilities</header>
-                    <p>The preprocessor has the source file translation capabilities: </p>
-                    <ul>
-                        <li>conditionally compile of parts of source file (controlled by directive #if, #ifdef, #ifndef, #else, #elif and #endif). </li>
-                        <li>replace text macros while possibly concatenating or quoting identifiers (controlled by directives #define and #undef, and operators # and ##) </li>
-                        <li>include other files (controlled by directive #include) </li>
-                        <li>cause an error (controlled by directive #error) </li>
-                    </ul>
-                    <p>The following aspects of the preprocessor can be controlled: </p>
-                    <ul>
-                        <li>implementation defined behavior (controlled by directive #pragma and operator _Pragma (since C99)) </li>
-                        <li>file name and line information available to the preprocessor (controlled by directives #line) </li>
-                    </ul>
-                </section>
-
-
-                <section id="Footnotes" class="main-section">
-                    <header>Footnotes</header>
-                    <ol>
-                        <li>↑ These are the directives defined by the standard. The standard does not define behavior for other directives: they might be ignored, have some useful meaning, or make the program ill-formed. Even if otherwise ignored, they are removed from the source code when the preprocessor is done. A common non-standard extension is the directive #warning which emits a user-defined message during compilation.</li>
-                    </ol>
-                </section>
-
-            <section id="Functions" class="main-section">
-                <header>Functions</header>
-                <p>A function is a C language construct that associates a compound statement (the function body) with an identifier (the function name). Every C program begins execution from the main function, which either terminates, or invokes other, user-defined or library functions. </p>
-                <code>
-                    // function definition.
-                    // defines a function with the name "sum" and with the body "{ return x+y; }"
-                    
-                    int sum(int x, int y) 
-                    {
-                        return x + y;
-                    }
-                </code>
-                <p>Functions may accept zero or more parameters, which are initialized from the arguments of a function call operator, and may return a value to its caller by means of the return statement. </p>
-                <code>
-                    int n = sum(1, 2); // parameters x and y are initialized with the arguments 1 and 2
-                </code>
-                <p>The body of a function is provided in a function definition. Each function must be defined only once in a program, unless the function is inline. </p>
-                <p>There are no nested functions (except where allowed through non-standard compiler extensions): each function definition must appear at file scope, and functions have no access to the local variables from the caller: </p>
-                <code>
-                    int main(void) // the main function definition
-                    {
-                        int sum(int, int); // function declaration (may appear at any scope)
-                        int x = 1;  // local variable in main
-                        sum(1, 2); // function call
-                    
-                    //int sum(int a, int b) // error: no nested functions
-                    //{
-                    //  return  a + b; 
-                    //}
-                    
-                    }
-
-                    int sum(int a, int b) // function definition
-                    {
-                        //return x + a + b; //  error: main's x is not accessible within sum
-                        return a + b;
-                    }
-                </code>
-            </section>
-
-                <section id="Statements" class="main-section">
-                    <header>Statements</header>
-                    <p>Statements are fragments of the <strong>C</strong> program that are executed in sequence. The body of any function is a compound statement, which, in turn is a sequence of statements and declarations: </p>
-                    <code>
-                        int main(void)
-                        { // start of a compound statement
-                            int n = 1; // declaration (not a statement)
-                            n = n+1; // expression statement
-                            printf("n = %d\n", n); // expression statement
-                            return 0; // return statement
-                        } // end of compound statement, end of function body
-                    </code>
-                    <p>There are five types of statements: </p>
-                    <ol>
-                        <li>compound statements</li>
-                        <li>expression statements</li>
-                        <li>selection statements</li>
-                        <li>iteration statements</li>
-                        <li>jump statements</li>
-                    </ol>
-                </section>
-
-                <section id="Labels" class="main-section">
-                    <header>Labels</header>
-                    <p>Any statement can be labeled, by providing a name followed by a colon before the statement itself. </p>
-                    <code>
-                        identifier : statement	
-                        case constant_expression : statement
-                        default : statement
-                    </code>
-                    <ol>
-                        <li>Target for goto.</li>
-                        <li>Case label in a switch statement.</li>
-                        <li>Default label in a switch statement.</li>
-                    </ol>
-                    <p>Any statement (but not a declaration) may be preceded by any number of labels, each of which declares identifier to be a label name, which must be unique within the enclosing function (in other words, label names have function scope). </p>
-                    <p>Label declaration has no effect on its own, does not alter the flow of control, or modify the behavior of the statement that follows in any way. </p>
-                </section>
-                
-                <section id="Compound_statements" class="main-section">
-                    <header>Compound statements</header>
-                    <p>A compound statement, or block, is a brace-enclosed sequence of statements and declarations. </p>
-                    <code>{ statement | declaration...(optional) } 	(1)</code>
-                    <p>The compound statement allows a set of declarations and statements to be grouped into one unit that can be used anywhere a single statement is expected (for example, in an if statement or an iteration statement): </p>
-                    <code>
-                        if (expr) // start of if-statement
-                        { // start of block
-                          int n = 1; // declaration
-                          printf("%d\n", n); // expression statement
-                        } // end of block, end of if-statement
-                    </code>
-                    <p>Each compound statement introduces its own block scope. </p>
-                    <p>The initializers of the variables with automatic storage duration declared inside a block and the VLA declarators are executed when flow of control passes over these declarations in order, as if they were statements: </p>
-                    <code>
-                        int main(void)
-                        { // start of block
-                          { // start of block
-                               puts("hello"); // expression statement
-                               int n = printf("abc\n"); // declaration, prints "abc", stores 4 in n
-                               int a[n*printf("1\n")]; // declaration, prints "1", allocates 8*sizeof(int)
-                               printf("%zu\n", sizeof(a)); // expression statement
-                          } // end of block, scope of n and a ends
-                          int n = 7; // n can be reused
-                        }
-                    </code>
-                </section>
+<section id="Compound_statements" class="main-section">
+<header>Compound statements</header>
+<p>A compound statement, or block, is a brace-enclosed sequence of statements and declarations. </p>
+<code>
+  { statement | declaration...(optional) }(1)
+</code>
+<p>The compound statement allows a set of declarations and statements to be grouped into one unit that can be used anywhere a single statement is expected (for example, in an if statement or an iteration statement): </p>
+<code>
+if (expr) // start of if-statement
+{ // start of block
+  int n = 1; // declaration
+  
+  printf("%d\n", n); // expression statement
+} // end of block, end of if-statement
+</code>
+<p>Each compound statement introduces its own block scope. </p>
+<p>The initializers of the variables with automatic storage duration declared inside a block and the VLA declarators are executed when flow of control passes over these declarations in order, as if they were statements: </p>
+<code>
+int main(void)
+{ // start of block
+  { // start of block
+    puts("hello"); 
+    int n = printf("abc\n"); 
+    int a[n*printf("1\n")]; 
+    printf("%zu\n", sizeof(a)); 
+  } // end of block, scope of n and a ends
+  int n = 7; // n can be reused
+}
+</code>
+</section>
                
-                <section id="Expression_statements" class="main-section">
-                    <header>Expression statements</header>
-                    <p>An expression followed by a semicolon is a statement. </p>
-                    <code>
-                        expression(optional) ;	
-                    </code>
-                    <p>Most statements in a typical C program are expression statements, such as assignments or function calls. </p>
-                    <p>An expression statement without an expression is called a null statement. It is often used to provide an empty body to a for or while loop. It can also be used to carry a label in the end of a compound statement or before a declaration: </p>
-                    <code>
-                        puts("hello"); // expression statement
-                        
-                        char *s;
-                        while (*s++ != '\0')
-                            ; // null statement
-                    </code>
-                </section>
+<section id="Expression_statements" class="main-section">
+<header>Expression statements</header>
+<p>An expression followed by a semicolon is a statement. </p>
+<code>
+    expression(optional) ;	
+</code>
+<p>Most statements in a typical C program are expression statements, such as assignments or function calls. </p>
+<p>An expression statement without an expression is called a null statement. It is often used to provide an empty body to a for or while loop. It can also be used to carry a label in the end of a compound statement or before a declaration: </p>
+<code>
+    puts("hello"); // expression statement
+    
+    char *s;
+    while (*s++ != '\0')
+        ; // null statement
+</code>
+</section>
                
-                <section id="Selection_statements" class="main-section">
-                    <header>Selection statements</header>
-                    <p>The selection statements choose between one of several statements depending on the value of an expression. </p>
-                    <code>
-                        if     ( expression ) statement	
-                        if     ( expression ) statement else statement
-                        switch ( expression ) statement	
-                    </code>
-                    <ol>
-                        <li>if statement</li>
-                        <li>if statement with an else clause</li>
-                        <li>switch statement</li>
-                    </ol>
-                </section>
+<section id="Selection_statements" class="main-section">
+<header>Selection statements</header>
+<p>The selection statements choose between one of several statements depending on the value of an expression. </p>
+<code>
+  if     ( expression ) statement	
+  if     ( expression ) statement 
+  switch ( expression ) statement	
+</code>
+    <ol>
+        <li>if statement</li>
+        <li>if statement with an else clause</li>
+        <li>switch statement</li>
+    </ol>
+</section>
                
-                <section id="Iteration_statements" class="main-section">
-                    <header>Iteration statements</header>
-                    <p>The iteration statements repeatedly execute a statement. </p>
-                    <code>
-                        while ( expression ) statement	
-                        do statement while ( expression ) ;	
-                        for ( init_clause ; expression(optional) ; expression(optional) ) statement	
-                    </code>
-                    <ol>
-                        <li>while loop</li>
-                        <li>do-while loop</li>
-                        <li>for loop</li>
-                    </ol>
-                </section>
+<section id="Iteration_statements" class="main-section">
+<header>Iteration statements</header>
+<p>The iteration statements repeatedly execute a statement. </p>
+<code>
+  while ( expression ) statement	
+  do statement while ( expression ) ;	
+  for (init ; expression; expression)	
+</code>
+<ol>
+    <li>while loop</li>
+    <li>do-while loop</li>
+    <li>for loop</li>
+</ol>
+</section>
 
-                <section id="Jump_statements" class="main-section">
-                    <header>Jump statements</header>
-                    <p>The jump statements unconditionally transfer flow control. </p>
-                    <code>
-                        break ; 	                 	
-                        continue ; 		
-                        return expression(optional) ;
-                        goto identifier ;
-                    </code>
-                    <ol>
-                        <li>break statement</li>
-                        <li>continue statement</li>
-                        <li>return statement with an optional expression</li>
-                        <li>goto statement</li>
-                    </ol>
-                </section>
+<section id="Jump_statements" class="main-section">
+<header>Jump statements</header>
+<p>The jump statements unconditionally transfer flow control. </p>
+<code>
+    break ; 	                 	
+    continue ; 		
+    return expression(optional) ;
+    goto identifier ;
+</code>
+    <ol>
+        <li>break statement</li>
+        <li>continue statement</li>
+        <li>return statement with an optional expression</li>
+        <li>goto statement</li>
+    </ol>
+</section>
     </main>
 
 </body>
